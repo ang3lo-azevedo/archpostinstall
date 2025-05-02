@@ -3,5 +3,8 @@
 # Enable multithreaded make
 multithread_make() {
     local cpu_cores=$1
+    
+    print_status "Enabling multithreaded make"
+
     sudo sed -i "s/^#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$cpu_cores\"/" /etc/makepkg.conf
 }
